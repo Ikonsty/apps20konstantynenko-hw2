@@ -2,7 +2,7 @@ package ua.edu.ucu.collections.immutable;
 
 import org.junit.Test;
 
-public class ImmutableLinkedListTest implements ImmutableListTest {
+public class ImmutableLinkedListTest implements ImmutableList {
     
     @Test
     public void testSomeMethod() {
