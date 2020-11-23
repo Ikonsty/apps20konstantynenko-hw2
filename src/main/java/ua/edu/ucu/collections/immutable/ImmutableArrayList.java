@@ -1,6 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ImmutableArrayList implements ImmutableList {
@@ -66,7 +65,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     public Object get(int index) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
