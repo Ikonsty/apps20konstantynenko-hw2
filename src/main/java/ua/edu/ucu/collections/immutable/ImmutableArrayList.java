@@ -3,7 +3,7 @@ package ua.edu.ucu.collections.immutable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ImmutableArrayList implements ImmutableList{
+public class ImmutableArrayList implements ImmutableList {
     private int len = 0;
     private Object[] content;
 

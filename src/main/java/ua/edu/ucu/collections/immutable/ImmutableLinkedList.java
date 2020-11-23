@@ -1,9 +1,8 @@
 package ua.edu.ucu.collections.immutable;
-import ua.edu.ucu.collections.immutable.Node;
 
 import java.util.Arrays;
 
-public class ImmutableLinkedList implements ImmutableList{
+public class ImmutableLinkedList implements ImmutableList {
     private Node Head;
     private Node Tail;
     private int len;
@@ -40,6 +39,7 @@ public class ImmutableLinkedList implements ImmutableList{
             thisCurrNode = thisCurrNode.getNext(); //copying previous nodes
             new_lst.len += 1;
         }
+
         newCurrNode.setNext(added_node); //add that node to new structure
 //        added_node.setNext(thisCurrNode);//add next to added node
         newCurrNode = added_node;
@@ -62,9 +62,17 @@ public class ImmutableLinkedList implements ImmutableList{
     }
 
 
-//    ImmutableList addAll(Object[] c); //додає масив елементів у кінець колекції
+    public ImmutableList addAll(Object[] c) {
+        return addAll(len - 1, c);
+    }
 
-//    ImmutableList addAll(int index, Object[] c); // додає масив елементів починаючи з зазначеного індекса, та кидає виключну ситуацію, якщо індекс виходить за межі колекції
+    public ImmutableList addAll(int index, Object[] c) {
+        ImmutableLinkedList new_lst = new ImmutableLinkedList();
+        for (int i = index; i < index + c.length; i++) {
+            new_lst = new_lst.add(i, c[i - index]);
+        }
+        return new_lst;
+    }
 
     public Object get(int index) {
         Node currNode = this.Head;
@@ -157,5 +165,25 @@ public class ImmutableLinkedList implements ImmutableList{
     @Override
     public String toString() {
         return Arrays.toString(toArray());
+    }
+
+    public Node getHead() {
+        return this.Head;
+    }
+
+    public Node getTail() {
+        return this.Tail;
+    }
+
+    public void setHead(Node head) {
+        this.Head = head;
+    }
+
+    public void setTail(Node tail) {
+        this.Tail = tail;
+    }
+
+    public int getLen() {
+        return this.len;
     }
 }
