@@ -21,8 +21,8 @@ public class ImmutableArrayList implements ImmutableList {
         return add(len - 1, el);
     }
 
-    public ImmutableArrayList add(int index, Object e){
-        if (index > len){
+    public ImmutableArrayList add(int index, Object e) {
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -33,17 +33,18 @@ public class ImmutableArrayList implements ImmutableList {
         new_elem.content[index] = e;
 
         if (len - index + 1 >= 0) {
-            System.arraycopy(this.content, index + 1, new_elem.content, index + 1, len - index + 1);
+            System.arraycopy(this.content, index + 1, new_elem.content,
+                    index + 1, len - index + 1);
         }
         return new_elem;
     }
 
-    public ImmutableArrayList addAll(Object[] c){
+    public ImmutableArrayList addAll(Object[] c) {
         return addAll(len - 1, c);
     }
 
-    public ImmutableArrayList addAll(int index, Object[] c){
-        if (index > len){
+    public ImmutableArrayList addAll(int index, Object[] c) {
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -53,16 +54,18 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         if (c.length - index >= 0) {
-            System.arraycopy(content, index, new_elem.content, index, c.length - index);
+            System.arraycopy(content, index, new_elem.content, index,
+                    c.length - index);
         }
 
         if (new_elem.len - index + c.length >= 0) {
-            System.arraycopy(content, index + c.length, new_elem.content, index + c.length, new_elem.len - index + c.length);
+            System.arraycopy(content, index + c.length, new_elem.content,
+                    index + c.length, new_elem.len - index + c.length);
         }
         return new_elem;
     }
 
-    public Object get(int index){
+    public Object get(int index) {
         if (index > len){
             throw new IndexOutOfBoundsException("Index out of range");
         }
@@ -70,8 +73,8 @@ public class ImmutableArrayList implements ImmutableList {
         return content[index];
     }
 
-    public ImmutableArrayList remove(int index){
-        if (index > len){
+    public ImmutableArrayList remove(int index) {
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -80,13 +83,14 @@ public class ImmutableArrayList implements ImmutableList {
             System.arraycopy(this.content, 0, new_elem.content, 0, index);
         }
         if (len - index + 1 >= 0) {
-            System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+            System.arraycopy(content, index + 1, new_elem.content,
+                    index + 1, len - index + 1);
         }
         return new_elem;
     }
 
-    public ImmutableArrayList set(int index, Object e){
-        if (index > len){
+    public ImmutableArrayList set(int index, Object e) {
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -101,39 +105,41 @@ public class ImmutableArrayList implements ImmutableList {
 //            new_elem.content[i] = content[i];
 //        }
         if (len - index + 1 >= 0) {
-            System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+            System.arraycopy(content, index + 1, new_elem.content,
+                    index + 1, len - index + 1);
         }
         return new_elem;
     }
 
-    public int indexOf(Object e){
-        for(int i = 0; i < len; i++)
-            if(content[i] == e){
+    public int indexOf(Object e) {
+        for (int i = 0; i < len; i++) {
+            if (content[i] == e) {
                 return i;
             }
+        }
         return -1;
     }
 
-    public int size(){
+    public int size() {
         return len;
     }
 
-    public ImmutableArrayList clear(){
+    public ImmutableArrayList clear() {
         content = new Object[0];
         len = 0;
 
         return new ImmutableArrayList();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return len == 0;
     }
 
-    public Object[] toArray(){
+    public Object[] toArray() {
         return content;
     }
 
-    public String toString(){
+    public String toString() {
         return Arrays.toString(content);
     }
 }

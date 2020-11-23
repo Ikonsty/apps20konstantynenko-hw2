@@ -24,13 +24,15 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList add(int index, Object e) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
         Node added_node = new Node(e);
-        Node newHead = new Node(this.Head.getData()); // create new Hew for new list
-        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead); //create new list with this head
+        // create new Hew for new list
+        Node newHead = new Node(this.Head.getData());
+        //create new list with this head
+        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead);
 
         Node thisCurrNode = this.Head.getNext();
         Node newCurrNode = new_lst.Head;
@@ -71,7 +73,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableList addAll(int index, Object[] c) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -83,7 +85,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object get(int index) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
@@ -103,12 +105,14 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList remove(int index) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        Node newHead = new Node(this.Head.getData()); // create new Hew for new list
-        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead); //create new list with this head
+        // create new Hew for new list
+        Node newHead = new Node(this.Head.getData());
+        //create new list with this head
+        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead);
 
         Node thisCurrNode = this.Head.getNext();
         Node newCurrNode = new_lst.Head;
@@ -134,10 +138,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList set(int index, Object e) {
-        if (index > len){
+        if (index > len) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
-        
+
         ImmutableLinkedList delList = remove(index);
         ImmutableLinkedList new_lst = delList.add(index, e);
         return new_lst;
@@ -147,7 +151,7 @@ public class ImmutableLinkedList implements ImmutableList {
         Node currNode = this.Head;
         int index = 0;
         for (int i = 1; i < this.len; i++) {
-            if (currNode.getData() == e){
+            if (currNode.getData() == e) {
                 return index;
             }
             index += 1;
