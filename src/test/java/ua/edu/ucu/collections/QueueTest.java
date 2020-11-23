@@ -1,11 +1,10 @@
 package ua.edu.ucu.collections;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+//import org.junit.Test;
 
 public class QueueTest {
     
-    @Test
+//    @Test
     public void testSomeMethod() {
         Queue qu = new Queue();
         System.out.println(qu.peek());

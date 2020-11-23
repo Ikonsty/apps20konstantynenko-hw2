@@ -1,10 +1,10 @@
 package ua.edu.ucu.collections.immutable;
 
-import org.junit.Test;
+//import org.junit.Test;
 
-public class ImmutableLinkedListTest implements ImmutableList {
+public class ImmutableLinkedListTest implements ImmutableListTest {
     
-    @Test
+//    @Test
     public void testSomeMethod() {
         ImmutableLinkedList arrList = new ImmutableLinkedList();
         arrList = arrList.add("Hello");

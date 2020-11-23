@@ -1,11 +1,10 @@
 package ua.edu.ucu.collections;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+//import org.junit.Test;
 
 public class StackTest {
     
-    @Test
+//    @Test
     public void testSomeMethod() {
         Stack st = new Stack();
         System.out.println(st.peek());

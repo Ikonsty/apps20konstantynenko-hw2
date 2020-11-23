@@ -1,5 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-public interface ImmutableList {
+public interface ImmutableListTest {
     public void testSomeMethod();
 }
