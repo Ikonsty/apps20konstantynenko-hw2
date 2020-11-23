@@ -25,17 +25,17 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        ImmutableArrayList new_elem = new ImmutableArrayList(len + 1);
+        ImmutableArrayList newElem = new ImmutableArrayList(len + 1);
         if (index >= 0) {
-            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+            System.arraycopy(this.content, 0, newElem.content, 0, index);
         }
-        new_elem.content[index] = e;
+        newElem.content[index] = e;
 
         if (len - index + 1 >= 0) {
-            System.arraycopy(this.content, index + 1, new_elem.content,
+            System.arraycopy(this.content, index + 1, newElem.content,
                     index + 1, len - index + 1);
         }
-        return new_elem;
+        return newElem;
     }
 
     public ImmutableArrayList addAll(Object[] c) {
@@ -47,21 +47,21 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        ImmutableArrayList new_elem = new ImmutableArrayList(len + c.length);
+        ImmutableArrayList newElem = new ImmutableArrayList(len + c.length);
         if (index >= 0) {
-            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+            System.arraycopy(this.content, 0, newElem.content, 0, index);
         }
 
         if (c.length - index >= 0) {
-            System.arraycopy(content, index, new_elem.content, index,
+            System.arraycopy(content, index, newElem.content, index,
                     c.length - index);
         }
 
-        if (new_elem.len - index + c.length >= 0) {
-            System.arraycopy(content, index + c.length, new_elem.content,
-                    index + c.length, new_elem.len - index + c.length);
+        if (newElem.len - index + c.length >= 0) {
+            System.arraycopy(content, index + c.length, newElem.content,
+                    index + c.length, newElem.len - index + c.length);
         }
-        return new_elem;
+        return newElem;
     }
 
     public Object get(int index) {
@@ -77,15 +77,15 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        ImmutableArrayList new_elem = new ImmutableArrayList(len - 1);
+        ImmutableArrayList newElem = new ImmutableArrayList(len - 1);
         if (index >= 0) {
-            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+            System.arraycopy(this.content, 0, newElem.content, 0, index);
         }
         if (len - index + 1 >= 0) {
-            System.arraycopy(content, index + 1, new_elem.content,
+            System.arraycopy(content, index + 1, newElem.content,
                     index + 1, len - index + 1);
         }
-        return new_elem;
+        return newElem;
     }
 
     public ImmutableArrayList set(int index, Object e) {
@@ -93,21 +93,21 @@ public class ImmutableArrayList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        ImmutableArrayList new_elem = new ImmutableArrayList(len);
+        ImmutableArrayList newElem = new ImmutableArrayList(len);
         if (index >= 0) {
-            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+            System.arraycopy(this.content, 0, newElem.content, 0, index);
         }
 
-        new_elem.content[index] = e;
+        newElem.content[index] = e;
 
 //        for (int i = index + 1; i < len; i++){
-//            new_elem.content[i] = content[i];
+//            newElem.content[i] = content[i];
 //        }
         if (len - index + 1 >= 0) {
-            System.arraycopy(content, index + 1, new_elem.content,
+            System.arraycopy(content, index + 1, newElem.content,
                     index + 1, len - index + 1);
         }
-        return new_elem;
+        return newElem;
     }
 
     public int indexOf(Object e) {

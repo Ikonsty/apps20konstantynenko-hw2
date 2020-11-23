@@ -3,19 +3,19 @@ package ua.edu.ucu.collections.immutable;
 import java.util.Arrays;
 
 public class ImmutableLinkedList implements ImmutableList {
-    private Node Head;
-    private Node Tail;
+    private Node head;
+    private Node tail;
     private int len;
 
     public ImmutableLinkedList() {
-        this.Head = null;
-        this.Tail = null;
+        this.head = null;
+        this.tail = null;
         this.len = 0;
     }
 
     public ImmutableLinkedList(Node node) {
-        this.Head = node;
-        this.Tail = node;
+        this.head = node;
+        this.tail = node;
         this.len = 1;
     }
 
@@ -28,39 +28,39 @@ public class ImmutableLinkedList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        Node added_node = new Node(e);
+        Node addedNode = new Node(e);
         // create new Hew for new list
-        Node newHead = new Node(this.Head.getData());
+        Node newHead = new Node(this.head.getData());
         //create new list with this head
-        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead);
+        ImmutableLinkedList newLst = new ImmutableLinkedList(newHead);
 
-        Node thisCurrNode = this.Head.getNext();
-        Node newCurrNode = new_lst.Head;
+        Node thisCurrNode = this.head.getNext();
+        Node newCurrNode = newLst.head;
 
         for (int i = 1; i < index; i++) {
-            Node new_node = new Node(thisCurrNode.getData());
-            newCurrNode.setNext(new_node);
+            Node newNode = new Node(thisCurrNode.getData());
+            newCurrNode.setNext(newNode);
 
             newCurrNode = newCurrNode.getNext();
             thisCurrNode = thisCurrNode.getNext(); //copying previous nodes
-            new_lst.len += 1;
+            newLst.len += 1;
         }
 
-        newCurrNode.setNext(added_node); //add that node to new structure
+        newCurrNode.setNext(addedNode); //add that node to new structure
 //        added_node.setNext(thisCurrNode);//add next to added node
-        newCurrNode = added_node;
-        new_lst.len += 1;
+        newCurrNode = addedNode;
+        newLst.len += 1;
 
         for (int i = index + 1; i < len; i++) {
-            Node new_node = new Node(thisCurrNode.getData());
-            newCurrNode.setNext(new_node);
+            Node newNode = new Node(thisCurrNode.getData());
+            newCurrNode.setNext(newNode);
 
             newCurrNode = newCurrNode.getNext();
             thisCurrNode = thisCurrNode.getNext(); //copying previous nodes
-            new_lst.len += 1;
+            newLst.len += 1;
         }
-        new_lst.Tail = newCurrNode;
-        return new_lst;
+        newLst.tail = newCurrNode;
+        return newLst;
     }
 
     public ImmutableLinkedList addFirst(Object c) {
@@ -77,11 +77,11 @@ public class ImmutableLinkedList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        ImmutableLinkedList new_lst = new ImmutableLinkedList();
+        ImmutableLinkedList newLst = new ImmutableLinkedList();
         for (int i = index; i < index + c.length; i++) {
-            new_lst = new_lst.add(i, c[i - index]);
+            newLst = newLst.add(i, c[i - index]);
         }
-        return new_lst;
+        return newLst;
     }
 
     public Object get(int index) {
@@ -89,7 +89,7 @@ public class ImmutableLinkedList implements ImmutableList {
             throw new IndexOutOfBoundsException("Index out of range");
         }
 
-        Node currNode = this.Head;
+        Node currNode = this.head;
         for (int i = 1; i < index; i++) {
             currNode = currNode.getNext();
         }
@@ -97,11 +97,11 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object getFirst() {
-        return this.Head.getData();
+        return this.head.getData();
     }
 
     public Object getLast() {
-        return this.Tail.getData();
+        return this.tail.getData();
     }
 
     public ImmutableLinkedList remove(int index) {
@@ -110,31 +110,31 @@ public class ImmutableLinkedList implements ImmutableList {
         }
 
         // create new Hew for new list
-        Node newHead = new Node(this.Head.getData());
+        Node newHead = new Node(this.head.getData());
         //create new list with this head
-        ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead);
+        ImmutableLinkedList newLst = new ImmutableLinkedList(newHead);
 
-        Node thisCurrNode = this.Head.getNext();
-        Node newCurrNode = new_lst.Head;
+        Node thisCurrNode = this.head.getNext();
+        Node newCurrNode = newLst.head;
 
         for (int i = 1; i < index; i++) {
-            Node new_node = new Node(thisCurrNode.getData());
-            newCurrNode.setNext(new_node);
+            Node newNode = new Node(thisCurrNode.getData());
+            newCurrNode.setNext(newNode);
 
             newCurrNode = newCurrNode.getNext();
             thisCurrNode = thisCurrNode.getNext(); //copying previous nodes
-            new_lst.len += 1;
+            newLst.len += 1;
         }
         for (int i = index + 1; i < len; i++) {
-            Node new_node = new Node(thisCurrNode.getData());
-            newCurrNode.setNext(new_node);
+            Node newNode = new Node(thisCurrNode.getData());
+            newCurrNode.setNext(newNode);
 
             newCurrNode = newCurrNode.getNext();
             thisCurrNode = thisCurrNode.getNext(); //copying previous nodes
-            new_lst.len += 1;
+            newLst.len += 1;
         }
-        new_lst.Tail = newCurrNode;
-        return new_lst;
+        newLst.tail = newCurrNode;
+        return newLst;
     }
 
     public ImmutableLinkedList set(int index, Object e) {
@@ -143,12 +143,12 @@ public class ImmutableLinkedList implements ImmutableList {
         }
 
         ImmutableLinkedList delList = remove(index);
-        ImmutableLinkedList new_lst = delList.add(index, e);
-        return new_lst;
+        ImmutableLinkedList newLst = delList.add(index, e);
+        return newLst;
     }
 
     public int indexOf(Object e) {
-        Node currNode = this.Head;
+        Node currNode = this.head;
         int index = 0;
         for (int i = 1; i < this.len; i++) {
             if (currNode.getData() == e) {
@@ -165,8 +165,8 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList clear() {
-        this.Head = null;
-        this.Tail = null;
+        this.head = null;
+        this.tail = null;
         this.len = 0;
         return new ImmutableLinkedList();
     }
@@ -177,7 +177,7 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public Object[] toArray() {
         Object[] realList = new Object[this.len];
-        Node currNode = this.Head;
+        Node currNode = this.head;
 
         for (int i = 1; i < this.len; i++) {
             realList[i] = currNode.getData();
@@ -192,19 +192,19 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Node getHead() {
-        return this.Head;
+        return this.head;
     }
 
     public Node getTail() {
-        return this.Tail;
+        return this.tail;
     }
 
     public void setHead(Node head) {
-        this.Head = head;
+        this.head = head;
     }
 
     public void setTail(Node tail) {
-        this.Tail = tail;
+        this.tail = tail;
     }
 
     public int getLen() {
