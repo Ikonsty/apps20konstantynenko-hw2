@@ -10,10 +10,16 @@ public class Queue {
     }
 
     public Object peek() {
+        if (content.getHead() == null){
+            throw new ArrayIndexOutOfBoundsException("No peek is here");
+        }
         return content.getHead();
     }
 
     public Object dequeue() {
+        if (content.getHead() == null){
+            throw new ArrayIndexOutOfBoundsException("No elements are here");
+        }
         Object value = content.getHead();
         content.setHead(content.getHead().getNext());
         return value;

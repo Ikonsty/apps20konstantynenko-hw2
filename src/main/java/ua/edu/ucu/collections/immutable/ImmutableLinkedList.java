@@ -203,10 +203,6 @@ public class ImmutableLinkedList implements ImmutableList {
         this.head = head;
     }
 
-    public void setTail(Node tail) {
-        this.tail = tail;
-    }
-
     public int getLen() {
         return this.len;
     }
