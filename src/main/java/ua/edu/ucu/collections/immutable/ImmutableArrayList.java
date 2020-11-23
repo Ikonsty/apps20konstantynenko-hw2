@@ -27,11 +27,14 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         ImmutableArrayList new_elem = new ImmutableArrayList(len + 1);
-        if (index >= 0) System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        if (index >= 0) {
+            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        }
         new_elem.content[index] = e;
 
-        if (len - index + 1 >= 0)
+        if (len - index + 1 >= 0) {
             System.arraycopy(this.content, index + 1, new_elem.content, index + 1, len - index + 1);
+        }
         return new_elem;
     }
 
@@ -45,12 +48,17 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         ImmutableArrayList new_elem = new ImmutableArrayList(len + c.length);
-        if (index >= 0) System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        if (index >= 0) {
+            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        }
 
-        if (c.length - index >= 0) System.arraycopy(content, index, new_elem.content, index, c.length - index);
+        if (c.length - index >= 0) {
+            System.arraycopy(content, index, new_elem.content, index, c.length - index);
+        }
 
-        if (new_elem.len - index + c.length >= 0)
+        if (new_elem.len - index + c.length >= 0) {
             System.arraycopy(content, index + c.length, new_elem.content, index + c.length, new_elem.len - index + c.length);
+        }
         return new_elem;
     }
 
@@ -68,8 +76,12 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         ImmutableArrayList new_elem = new ImmutableArrayList(len - 1);
-        if (index >= 0) System.arraycopy(this.content, 0, new_elem.content, 0, index);
-        if (len - index + 1 >= 0) System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+        if (index >= 0) {
+            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        }
+        if (len - index + 1 >= 0) {
+            System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+        }
         return new_elem;
     }
 
@@ -79,14 +91,18 @@ public class ImmutableArrayList implements ImmutableList {
         }
 
         ImmutableArrayList new_elem = new ImmutableArrayList(len);
-        if (index >= 0) System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        if (index >= 0) {
+            System.arraycopy(this.content, 0, new_elem.content, 0, index);
+        }
 
         new_elem.content[index] = e;
 
 //        for (int i = index + 1; i < len; i++){
 //            new_elem.content[i] = content[i];
 //        }
-        if (len - index + 1 >= 0) System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+        if (len - index + 1 >= 0) {
+            System.arraycopy(content, index + 1, new_elem.content, index + 1, len - index + 1);
+        }
         return new_elem;
     }
 

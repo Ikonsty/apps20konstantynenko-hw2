@@ -24,6 +24,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList add(int index, Object e) {
+        if (index > len){
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+
         Node added_node = new Node(e);
         Node newHead = new Node(this.Head.getData()); // create new Hew for new list
         ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead); //create new list with this head
@@ -67,6 +71,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableList addAll(int index, Object[] c) {
+        if (index > len){
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+
         ImmutableLinkedList new_lst = new ImmutableLinkedList();
         for (int i = index; i < index + c.length; i++) {
             new_lst = new_lst.add(i, c[i - index]);
@@ -75,6 +83,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public Object get(int index) {
+        if (index > len){
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+
         Node currNode = this.Head;
         for (int i = 1; i < index; i++) {
             currNode = currNode.getNext();
@@ -91,6 +103,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList remove(int index) {
+        if (index > len){
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+
         Node newHead = new Node(this.Head.getData()); // create new Hew for new list
         ImmutableLinkedList new_lst = new ImmutableLinkedList(newHead); //create new list with this head
 
@@ -118,6 +134,10 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     public ImmutableLinkedList set(int index, Object e) {
+        if (index > len){
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+        
         ImmutableLinkedList delList = remove(index);
         ImmutableLinkedList new_lst = delList.add(index, e);
         return new_lst;
