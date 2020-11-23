@@ -1,9 +1,8 @@
 package ua.edu.ucu.collections.immutable;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class ImmutableLinkedListTest implements ImmutableList{
+public class ImmutableLinkedListTest implements ImmutableListTest {
     
     @Test
     public void testSomeMethod() {
