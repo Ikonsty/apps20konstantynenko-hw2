@@ -17,11 +17,11 @@ public class ImmutableArrayList implements ImmutableList{
         content = new Object[len];
     }
 
-    public ImmutableList add(Object el) {
-        return add(len, el);
+    public ImmutableArrayList add(Object el) {
+        return add(len - 1, el);
     }
 
-    public ImmutableList add(int index, Object e){
+    public ImmutableArrayList add(int index, Object e){
         if (index > len){
             throw new IndexOutOfBoundsException("Index out of range");
         }
@@ -35,11 +35,11 @@ public class ImmutableArrayList implements ImmutableList{
         return new_elem;
     }
 
-    public ImmutableList addAll(Object[] c){
-        return addAll(len, c);
+    public ImmutableArrayList addAll(Object[] c){
+        return addAll(len - 1, c);
     }
 
-    public ImmutableList addAll(int index, Object[] c){
+    public ImmutableArrayList addAll(int index, Object[] c){
         if (index > len){
             throw new IndexOutOfBoundsException("Index out of range");
         }
@@ -62,7 +62,7 @@ public class ImmutableArrayList implements ImmutableList{
         return content[index];
     }
 
-    public ImmutableList remove(int index){
+    public ImmutableArrayList remove(int index){
         if (index > len){
             throw new IndexOutOfBoundsException("Index out of range");
         }
@@ -73,7 +73,7 @@ public class ImmutableArrayList implements ImmutableList{
         return new_elem;
     }
 
-    public ImmutableList set(int index, Object e){
+    public ImmutableArrayList set(int index, Object e){
         if (index > len){
             throw new IndexOutOfBoundsException("Index out of range");
         }
@@ -102,7 +102,7 @@ public class ImmutableArrayList implements ImmutableList{
         return len;
     }
 
-    public ImmutableList clear(){
+    public ImmutableArrayList clear(){
         content = new Object[0];
         len = 0;
 
